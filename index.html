@@ -1,715 +1,568 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="KVSc College Uchchaith Benipatti - One Place for Assignments, Notes & Notifications. Access study materials, PDFs, question papers, and important updates.">
-<meta name="keywords" content="KVSc College, Study Materials, Assignments, Notes, PDFs, Question Papers, Benipatti">
-<meta name="author" content="Sagar">
-
-<!-- Open Graph Tags -->
-<meta property="og:title" content="KVSC Study Materials By Sagar">
-<meta property="og:description" content="One Place for Assignments, Notes & Notifications">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://i.ibb.co/kc9vYJZ/college-banner.jpg">
-
-<title>KVSC Study Materials By Sagar | KVSc College Uchchaith Benipatti</title>
-
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAABN0lEQVR4nO2WzU7CQBCAZ4+SePMJfAJfxKt68OYb+AY+gU9g9KJRTyZqPHnwJEZjjBqNGhVF/mT6JROyJd1uS0sI8SWTtJnZb2Znd0cIgiAIgiD+JwBmgDlgCVgF1oEtYBfYBw6BE+AcuJA6Bddd6/iuUQAWgU2gBnwAfeAX+FE6ddd+dH0fqLm+F4EysCOB+0AXaOugWuR8zvoAvmQNZWBJAvYMfAMtoBMR1HX8VtfTAr4k0JIsa1YB5iVoDei47itA0wPQdL1VoC75zEeIsgbMy4dNw/VWgHsPQMX1bgCzwEQE5UTCngOjkvg48JUBeJ76GpASgHS8J7M6sAOMhABO6gGAcB05kFm1AuxF+K3q+ntS25TaUVab0JHJHmj6UttKFMD1p43a7mcQBEEQhBA/LiZMbwVu6PwAAAAASUVORK5CYII=">
-
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-/* ====== CSS RESET & VARIABLES ====== */
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
-
-:root {
---primary-color: #6366f1;
---primary-dark: #4f46e5;
---secondary-color: #ec4899;
---accent-color: #f59e0b;
---success-color: #10b981;
---danger-color: #ef4444;
---dark-bg: #0f172a;
---dark-card: #1e293b;
---light-bg: #f8fafc;
---light-card: #ffffff;
---text-dark: #1e293b;
---text-light: #64748b;
---border-color: #e2e8f0;
---shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
---shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
---gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
---gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
---gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
---gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-}
-
-body {
-font-family: 'Poppins', sans-serif;
-background: var(--light-bg);
-color: var(--text-dark);
-line-height: 1.6;
-overflow-x: hidden;
-transition: background 0.3s ease, color 0.3s ease;
-}
-
-body.dark-mode {
-background: var(--dark-bg);
-color: #e2e8f0;
-}
-
-body.dark-mode .card,
-body.dark-mode .notification-card,
-body.dark-mode .assignment-card,
-body.dark-mode .note-card,
-body.dark-mode .pdf-card,
-body.dark-mode .qp-card {
-background: var(--dark-card);
-color: #e2e8f0;
-border-color: #334155;
-}
-
-body.dark-mode .navbar {
-background: rgba(15, 23, 42, 0.95);
-border-bottom: 1px solid #334155;
-}
-
-body.dark-mode .search-box input {
-background: var(--dark-card);
-color: #e2e8f0;
-border-color: #334155;
-}
-
-body.dark-mode .filter-btn {
-background: var(--dark-card);
-color: #e2e8f0;
-border-color: #334155;
-}
-
-body.dark-mode .filter-btn.active {
-background: var(--primary-color);
-color: white;
-}
-
-body.dark-mode .footer {
-background: var(--dark-card);
-border-top: 1px solid #334155;
-}
-
-body.dark-mode .contact-form input,
-body.dark-mode .contact-form textarea,
-body.dark-mode .contact-form select {
-background: var(--dark-bg);
-color: #e2e8f0;
-border-color: #334155;
-}
-
-/* ====== ANNOUNCEMENT BANNER ====== */
-.announcement-banner {
-background: var(--gradient-2);
-color: white;
-text-align: center;
-padding: 12px 20px;
-font-size: 14px;
-font-weight: 500;
-position: relative;
-animation: slideDown 0.5s ease;
-}
-
-.announcement-banner .close-banner {
-position: absolute;
-right: 20px;
-top: 50%;
-transform: translateY(-50%);
-background: rgba(255, 255, 255, 0.2);
-border: none;
-color: white;
-width: 25px;
-height: 25px;
-border-radius: 50%;
-cursor: pointer;
-font-size: 16px;
-line-height: 1;
-}
-
-@keyframes slideDown {
-from {
-transform: translateY(-100%);
-opacity: 0;
-}
-to {
-transform: translateY(0);
-opacity: 1;
-}
-}
-
-/* ====== NAVIGATION ====== */
-.navbar {
-background: rgba(255, 255, 255, 0.95);
-backdrop-filter: blur(10px);
-padding: 15px 0;
-position: sticky;
-top: 0;
-z-index: 1000;
-box-shadow: var(--shadow);
-border-bottom: 1px solid var(--border-color);
-}
-
-.nav-container {
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 20px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-}
-
-.logo {
-font-size: 24px;
-font-weight: 700;
-background: var(--gradient-1);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-}
-
-.nav-menu {
-display: flex;
-list-style: none;
-gap: 30px;
-align-items: center;
-}
-
-.nav-menu a {
-text-decoration: none;
-color: var(--text-dark);
-font-weight: 500;
-font-size: 15px;
-transition: color 0.3s;
-position: relative;
-}
-
-body.dark-mode .nav-menu a {
-color: #e2e8f0;
-}
-
-.nav-menu a::after {
-content: '';
-position: absolute;
-bottom: -5px;
-left: 0;
-width: 0;
-height: 2px;
-background: var(--primary-color);
-transition: width 0.3s;
-}
-
-.nav-menu a:hover::after {
-width: 100%;
-}
-
-.dark-mode-toggle {
-background: var(--primary-color);
-border: none;
-color: white;
-width: 40px;
-height: 40px;
-border-radius: 50%;
-cursor: pointer;
-font-size: 18px;
-display: flex;
-align-items: center;
-justify-content: center;
-transition: transform 0.3s, background 0.3s;
-}
-
-.dark-mode-toggle:hover {
-transform: scale(1.1);
-background: var(--primary-dark);
-}
-
-.hamburger {
-display: none;
-flex-direction: column;
-cursor: pointer;
-gap: 5px;
-}
-
-.hamburger span {
-width: 25px;
-height: 3px;
-background: var(--primary-color);
-border-radius: 3px;
-transition: all 0.3s;
-}
-
-/* ====== HERO SECTION ====== */
-.hero {
-background: var(--gradient-1);
-color: white;
-padding: 80px 20px;
-text-align: center;
-position: relative;
-overflow: hidden;
-}
-
-.hero::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,101.3C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
-background-size: cover;
-opacity: 0.3;
-}
-
-.hero-content {
-max-width: 800px;
-margin: 0 auto;
-position: relative;
-z-index: 1;
-}
-
-.hero h1 {
-font-size: 48px;
-margin-bottom: 15px;
-font-weight: 800;
-animation: fadeInUp 0.8s ease;
-}
-
-.hero .tagline {
-font-size: 20px;
-margin-bottom: 40px;
-opacity: 0.9;
-animation: fadeInUp 0.8s ease 0.2s backwards;
-}
-
-@keyframes fadeInUp {
-from {
-opacity: 0;
-transform: translateY(30px);
-}
-to {
-opacity: 1;
-transform: translateY(0);
-}
-}
-
-.search-box {
-max-width: 600px;
-margin: 0 auto 30px;
-animation: fadeInUp 0.8s ease 0.4s backwards;
-}
-
-.search-box input {
-width: 100%;
-padding: 18px 50px 18px 25px;
-border: none;
-border-radius: 50px;
-font-size: 16px;
-box-shadow: var(--shadow-lg);
-outline: none;
-transition: transform 0.3s;
-}
-
-.search-box input:focus {
-transform: translateY(-2px);
-}
-
-.search-box {
-position: relative;
-}
-
-.search-box::after {
-content: '🔍';
-position: absolute;
-right: 25px;
-top: 50%;
-transform: translateY(-50%);
-font-size: 20px;
-}
-
-.quick-actions {
-display: flex;
-gap: 15px;
-justify-content: center;
-flex-wrap: wrap;
-animation: fadeInUp 0.8s ease 0.6s backwards;
-}
-
-.btn {
-padding: 12px 30px;
-border: none;
-border-radius: 50px;
-font-size: 15px;
-font-weight: 600;
-cursor: pointer;
-text-decoration: none;
-display: inline-flex;
-align-items: center;
-gap: 8px;
-transition: all 0.3s;
-box-shadow: var(--shadow);
-}
-
-.btn-primary {
-background: white;
-color: var(--primary-color);
-}
-
-.btn-primary:hover {
-transform: translateY(-3px);
-box-shadow: var(--shadow-lg);
-}
-
-.btn-outline {
-background: transparent;
-color: white;
-border: 2px solid white;
-}
-
-.btn-outline:hover {
-background: white;
-color: var(--primary-color);
-}
-
-.btn-success {
-background: var(--success-color);
-color: white;
-}
-
-.btn-danger {
-background: var(--danger-color);
-color: white;
-}
-
-.btn-accent {
-background: var(--accent-color);
-color: white;
-}
-
-.btn:hover {
-transform: translateY(-3px);
-box-shadow: var(--shadow-lg);
-}
-
-/* ====== CONTAINER ====== */
-.container {
-max-width: 1200px;
-margin: 0 auto;
-padding: 60px 20px;
-}
-
-.section-title {
-text-align: center;
-font-size: 36px;
-margin-bottom: 15px;
-font-weight: 700;
-background: var(--gradient-1);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-}
-
-.section-subtitle {
-text-align: center;
-color: var(--text-light);
-margin-bottom: 50px;
-font-size: 18px;
-}
-
-/* ====== FILTERS ====== */
-.filters {
-display: flex;
-gap: 10px;
-flex-wrap: wrap;
-justify-content: center;
-margin-bottom: 40px;
-}
-
-.filter-btn {
-padding: 10px 25px;
-border: 2px solid var(--border-color);
-background: white;
-border-radius: 50px;
-cursor: pointer;
-font-size: 14px;
-font-weight: 500;
-color: var(--text-dark);
-transition: all 0.3s;
-}
-
-.filter-btn:hover,
-.filter-btn.active {
-background: var(--primary-color);
-color: white;
-border-color: var(--primary-color);
-transform: translateY(-2px);
-}
-
-/* ====== CARDS GRID ====== */
-.cards-grid {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-gap: 30px;
-margin-bottom: 40px;
-}
-
-.card {
-background: white;
-border-radius: 20px;
-padding: 25px;
-box-shadow: var(--shadow);
-transition: all 0.3s;
-border: 1px solid var(--border-color);
-position: relative;
-overflow: hidden;
-}
-
-.card::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-height: 4px;
-background: var(--gradient-1);
-transform: scaleX(0);
-transition: transform 0.3s;
-}
-
-.card:hover {
-transform: translateY(-10px);
-box-shadow: var(--shadow-lg);
-}
-
-.card:hover::before {
-transform: scaleX(1);
-}
-
-.card .badge {
-display: inline-block;
-padding: 5px 15px;
-border-radius: 50px;
-font-size: 12px;
-font-weight: 600;
-margin-bottom: 10px;
-}
-
-.badge-new {
-background: var(--danger-color);
-color: white;
-animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-0%, 100% {
-transform: scale(1);
-}
-50% {
-transform: scale(1.05);
-}
-}
-
-.badge-sem {
-background: var(--gradient-3);
-color: white;
-}
-
-.badge-subject {
-background: var(--accent-color);
-color: white;
-}
-
-.card h3 {
-font-size: 20px;
-margin-bottom: 10px;
-color: var(--text-dark);
-}
-
-body.dark-mode .card h3 {
-color: #e2e8f0;
-}
-
-.card .meta {
-display: flex;
-flex-wrap: wrap;
-gap: 15px;
-margin: 15px 0;
-font-size: 14px;
-color: var(--text-light);
-}
-
-.card .meta span {
-display: flex;
-align-items: center;
-gap: 5px;
-}
-
-.card p {
-color: var(--text-light);
-font-size: 14px;
-line-height: 1.6;
-margin-bottom: 20px;
-}
-
-.card .actions {
-display: flex;
-gap: 10px;
-flex-wrap: wrap;
-}
-
-.btn-sm {
-padding: 8px 20px;
-font-size: 13px;
-}
-
-/* ====== NOTIFICATION CARDS ====== */
-.notification-card {
-background: white;
-border-left: 4px solid var(--primary-color);
-border-radius: 12px;
-padding: 20px;
-margin-bottom: 20px;
-box-shadow: var(--shadow);
-transition: all 0.3s;
-}
-
-.notification-card:hover {
-transform: translateX(5px);
-box-shadow: var(--shadow-lg);
-}
-
-.notification-card .notification-header {
-display: flex;
-justify-content: space-between;
-align-items: start;
-margin-bottom: 10px;
-flex-wrap: wrap;
-gap: 10px;
-}
-
-.notification-card h4 {
-font-size: 18px;
-color: var(--text-dark);
-margin-bottom: 5px;
-}
-
-.notification-card .date {
-font-size: 13px;
-color: var(--text-light);
-}
-
-.notification-card .category {
-background: var(--gradient-2);
-color: white;
-padding: 4px 12px;
-border-radius: 20px;
-font-size: 12px;
-font-weight: 600;
-}
-
-/* ====== STATS SECTION ====== */
-.stats {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-gap: 30px;
-margin-bottom: 60px;
-}
-
-.stat-card {
-background: white;
-border-radius: 20px;
-padding: 30px;
-text-align: center;
-box-shadow: var(--shadow);
-transition: all 0.3s;
-border: 1px solid var(--border-color);
-}
-
-body.dark-mode .stat-card {
-background: var(--dark-card);
-border-color: #334155;
-}
-
-.stat-card:hover {
-transform: translateY(-5px);
-box-shadow: var(--shadow-lg);
-}
-
-.stat-card .icon {
-font-size: 48px;
-margin-bottom: 15px;
-}
-
-.stat-card h3 {
-font-size: 32px;
-margin-bottom: 5px;
-color: var(--primary-color);
-}
-
-.stat-card p {
-color: var(--text-light);
-font-size: 14px;
-}
-
-/* ====== CONTACT FORM ====== */
-.contact-form {
-max-width: 600px;
-margin: 0 auto;
-background: white;
-padding: 40px;
-border-radius: 20px;
-box-shadow: var(--shadow-lg);
-}
-
-body.dark-mode .contact-form {
-background: var(--dark-card);
-}
-
-.form-group {
-margin-bottom: 25px;
-}
-
-.form-group label {
-display: block;
-margin-bottom: 8px;
-font-weight: 600;
-color: var(--text-dark);
-}
-
-body.dark-mode .form-group label {
-color: #e2e8f0;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-width: 100%;
-padding: 12px 20px;
-border: 2px solid var(--border-color);
-border-radius: 12px;
-font-size: 15px;
-font-family: 'Poppins', sans-serif;
-transition: border-color 0.3s;
-outline: none;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-border-color: var(--primary-color);
-}
-
-.form-group texta
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KVSC College Uchchaith, Benipatti - Study materials, assignments, notes, notifications and question papers." />
+  <meta name="keywords" content="KVSC College, Study Materials, Assignments, Notes, PDFs, Question Papers, Benipatti, Madhubani" />
+  <meta name="author" content="KVSC College" />
+  <title>KVSC College Uchchaith, Benipatti | Study Materials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#7c3aed;
+      --primary2:#2563eb;
+      --accent:#f59e0b;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --text:#1e293b;
+      --muted:#64748b;
+      --border:#e2e8f0;
+      --shadow:0 10px 30px rgba(15,23,42,.08);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Poppins,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      overflow-x:hidden;
+      transition:.3s ease;
+    }
+    body.dark{
+      --bg:#0f172a;
+      --card:#1e293b;
+      --text:#e2e8f0;
+      --muted:#94a3b8;
+      --border:#334155;
+      background:var(--bg);
+    }
+    a{text-decoration:none;color:inherit}
+    .topbar{
+      background:linear-gradient(135deg,#7c2d12,#b45309 45%,#1d4ed8);
+      color:#fff;
+      text-align:center;
+      padding:10px 16px;
+      font-size:14px;
+      font-weight:500;
+    }
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--border);
+    }
+    body.dark .nav{background:rgba(15,23,42,.92)}
+    .navin,.heroin,.wrap,.footin{
+      max-width:1200px;
+      margin:auto;
+      padding:0 20px;
+    }
+    .navin{
+      height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      font-size:20px;
+    }
+    .logo-badge{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      color:#fff;
+      box-shadow:var(--shadow);
+    }
+    .menu{
+      display:flex;
+      align-items:center;
+      gap:26px;
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+    .menu a{font-weight:500;color:var(--text)}
+    .menu a:hover,.menu a.active{color:var(--primary)}
+    .tools{display:flex;align-items:center;gap:10px}
+    .btn{
+      border:0;
+      border-radius:999px;
+      padding:11px 18px;
+      font-weight:600;
+      cursor:pointer;
+      transition:.25s all;
+      font-family:inherit;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn.primary{
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      color:#fff;
+    }
+    .btn.soft{
+      background:transparent;
+      color:var(--text);
+      border:1px solid var(--border);
+    }
+    .hamb{
+      display:none;
+      border:0;
+      background:transparent;
+      font-size:28px;
+      cursor:pointer;
+      color:var(--text);
+    }
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:
+        linear-gradient(rgba(15,23,42,.72),rgba(15,23,42,.72)),
+        url('https://images.unsplash.com/photo-1519682577862-22b62b24e493?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color:#fff;
+      padding:92px 0 76px;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.12) 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,.12) 0 2px, transparent 3px),
+        radial-gradient(circle at 30% 80%, rgba(255,255,255,.1) 0 2px, transparent 3px),
+        radial-gradient(circle at 75% 75%, rgba(255,255,255,.1) 0 2px, transparent 3px);
+      background-size:180px 180px;
+      opacity:.65;
+      pointer-events:none;
+    }
+    .heroin{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:32px;
+      align-items:center;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:rgba(255,255,255,.15);
+      border:1px solid rgba(255,255,255,.18);
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:13px;
+    }
+    h1{
+      font-size:clamp(34px,5vw,58px);
+      line-height:1.05;
+      margin:16px 0 14px;
+    }
+    .sub{
+      font-size:18px;
+      max-width:680px;
+      color:rgba(255,255,255,.9);
+    }
+    .search{
+      display:flex;
+      gap:10px;
+      max-width:680px;
+      margin:26px 0 18px;
+    }
+    .search input{
+      flex:1;
+      border:0;
+      border-radius:999px;
+      padding:16px 20px;
+      font:inherit;
+      outline:none;
+    }
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+    .chip{
+      background:rgba(255,255,255,.13);
+      border:1px solid rgba(255,255,255,.18);
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:13px;
+    }
+    .panel{
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:28px;
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+    .panel h3{margin:0 0 12px;font-size:22px}
+    .panel p{margin:0 0 14px;color:rgba(255,255,255,.88)}
+    .madhubani{
+      border-radius:24px;
+      padding:18px;
+      background:linear-gradient(135deg,#fef3c7, #fde68a 35%, #dbeafe);
+      color:#111827;
+      overflow:hidden;
+      position:relative;
+    }
+    .madhubani:before,.madhubani:after{
+      content:"";
+      position:absolute;
+      border:3px solid rgba(0,0,0,.55);
+      inset:12px;
+      border-radius:18px;
+      pointer-events:none;
+    }
+    .madhubani:after{
+      inset:22px;
+      border-style:dashed;
+      opacity:.55;
+    }
+    .mandala{
+      height:200px;
+      border-radius:18px;
+      background:
+        radial-gradient(circle at center,#111 0 4px,transparent 5px),
+        radial-gradient(circle,#ef4444 0 18%, transparent 19%),
+        radial-gradient(circle,#f59e0b 0 33%, transparent 34%),
+        radial-gradient(circle,#10b981 0 48%, transparent 49%),
+        radial-gradient(circle,#2563eb 0 63%, transparent 64%);
+      position:relative;
+      display:grid;
+      place-items:center;
+      margin-top:6px;
+    }
+    .mandala span{
+      background:#fff;
+      border-radius:999px;
+      padding:10px 14px;
+      font-weight:700;
+      box-shadow:var(--shadow);
+    }
+    .section{
+      padding:74px 0;
+    }
+    .title{
+      text-align:center;
+      font-size:clamp(28px,3.5vw,42px);
+      margin:0 0 12px;
+    }
+    .subtitle{
+      text-align:center;
+      color:var(--muted);
+      max-width:760px;
+      margin:0 auto 34px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:22px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+    .icon{
+      width:54px;
+      height:54px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,rgba(109,40,217,.16),rgba(37,99,235,.16));
+      font-size:24px;
+      margin-bottom:16px;
+    }
+    .meta{color:var(--muted);font-size:14px}
+    .tag{
+      display:inline-block;
+      margin-bottom:10px;
+      padding:5px 12px;
+      border-radius:999px;
+      background:rgba(245,158,11,.15);
+      color:#b45309;
+      font-size:12px;
+      font-weight:700;
+    }
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:18px;
+    }
+    .stat{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:24px;
+      text-align:center;
+      box-shadow:var(--shadow);
+    }
+    .stat h3{
+      font-size:32px;
+      margin:0;
+      color:var(--primary);
+    }
+    .stat p{
+      margin:6px 0 0;
+      color:var(--muted);
+    }
+    .notice{
+      display:grid;
+      gap:16px;
+    }
+    .note{
+      background:var(--card);
+      border-left:5px solid var(--primary);
+      border-radius:18px;
+      padding:20px;
+      box-shadow:var(--shadow);
+    }
+    .foot{
+      background:#0f172a;
+      color:#cbd5e1;
+      padding:36px 0 18px;
+      margin-top:20px;
+    }
+    .footin{
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr;
+      gap:24px;
+    }
+    .foot h4{
+      margin:0 0 12px;
+      color:#fff;
+    }
+    .copy{
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,.1);
+      margin-top:24px;
+      padding-top:16px;
+      font-size:14px;
+      color:#94a3b8;
+    }
+    .college-theme{
+      border-radius:24px;
+      padding:18px;
+      background:linear-gradient(135deg, rgba(239,68,68,.12), rgba(245,158,11,.12), rgba(16,185,129,.12));
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .theme-list{
+      display:grid;
+      gap:10px;
+      margin:0;
+      padding-left:18px;
+    }
+    .theme-list li{color:var(--muted)}
+    @media (max-width: 960px){
+      .heroin,.footin{grid-template-columns:1fr}
+      .menu{
+        position:fixed;
+        inset:76px 16px auto 16px;
+        background:var(--card);
+        border:1px solid var(--border);
+        border-radius:20px;
+        padding:18px;
+        flex-direction:column;
+        align-items:flex-start;
+        display:none;
+        box-shadow:var(--shadow);
+      }
+      .menu.show{display:flex}
+      .hamb{display:block}
+      .search{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">KVSC College Uchchaith, Benipatti — Study Materials, Notes, Assignments and Notifications</div>
+
+  <header class="nav">
+    <div class="navin">
+      <div class="logo">
+        <div class="logo-badge">KV</div>
+        <div>KVSC College</div>
+      </div>
+      <ul class="menu" id="menu">
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#materials">Materials</a></li>
+        <li><a href="#notifications">Notifications</a></li>
+        <li><a href="#theme">Theme</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="tools">
+        <button class="btn soft" id="modeBtn">🌙 Dark</button>
+        <button class="hamb" id="hamb">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="home" class="hero">
+    <div class="heroin">
+      <section>
+        <div class="eyebrow">📚 Official college learning hub</div>
+        <h1>KVSC College study portal with a Madhubani cultural theme</h1>
+        <p class="sub">A clean, modern homepage for Kalidas Vidyapati Science College, built for assignments, notes, PDFs, question papers, and important updates — with a Mithila painting inspired visual identity.</p>
+        <div class="search">
+          <input placeholder="Search notes, PDFs, semesters, teachers..." />
+          <button class="btn primary">Search</button>
+        </div>
+        <div class="chips">
+          <span class="chip">Sem 1–6</span>
+          <span class="chip">Assignments</span>
+          <span class="chip">Notice Board</span>
+          <span class="chip">Question Papers</span>
+          <span class="chip">Botany</span>
+          <span class="chip">Physics</span>
+        </div>
+      </section>
+
+      <aside class="panel madhubani">
+        <h3>KVSC College theme</h3>
+        <p>Designed to feel like a college website while reflecting Mithila art and Madhubani painting tradition.</p>
+        <div class="mandala"><span>Madhubani Art</span></div>
+      </aside>
+    </div>
+  </main>
+
+  <section id="materials" class="section">
+    <div class="wrap">
+      <h2 class="title">Study Materials</h2>
+      <p class="subtitle">Quick-access cards for the main student resources used in a science college portal.</p>
+      <div class="grid">
+        <article class="card">
+          <div class="icon">📝</div>
+          <div class="tag">Assignments</div>
+          <h3>Assignment uploads</h3>
+          <p class="meta">Subject-wise homework, practical submissions, and semester tasks.</p>
+        </article>
+        <article class="card">
+          <div class="icon">📄</div>
+          <div class="tag">PDFs</div>
+          <h3>Notes and PDFs</h3>
+          <p class="meta">Lecture notes, syllabus files, and downloadable reading material.</p>
+        </article>
+        <article class="card">
+          <div class="icon">❓</div>
+          <div class="tag">Exam Prep</div>
+          <h3>Question papers</h3>
+          <p class="meta">Previous year papers, model papers, and revision content.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🔔</div>
+          <div class="tag">Notice</div>
+          <h3>Latest notifications</h3>
+          <p class="meta">Exam schedules, holidays, form dates, and official updates.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="notifications" class="section" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="title">Latest Notices</h2>
+      <p class="subtitle">A simple notice board section for college communication.</p>
+      <div class="notice">
+        <div class="note">
+          <strong>Internal assessment notice</strong>
+          <p class="meta">Students should check class-wise assessment schedule and submit assignments on time.</p>
+        </div>
+        <div class="note">
+          <strong>Library and lab updates</strong>
+          <p class="meta">Any new information about library timings, practical classes, or lab sessions can appear here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="theme">
+    <div class="wrap">
+      <h2 class="title">College Theme Page</h2>
+      <p class="subtitle">The visual theme stays rooted in KVSC identity, while the decorative style comes from Madhubani painting and Mithila motifs.</p>
+      <div class="grid">
+        <div class="card college-theme">
+          <h3>Why this theme fits KVSC</h3>
+          <ul class="theme-list">
+            <li>Uses traditional folk-art colors.</li>
+            <li>Keeps the site academic and professional.</li>
+            <li>Represents local heritage without losing readability.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Suggested motifs</h3>
+          <p class="meta">Lotus, fish, peacock, सूर्य, floral borders, and hand-drawn frames work well for headers, banners, and section dividers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="stats" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="title">Portal Snapshot</h2>
+      <div class="stats">
+        <div class="stat"><h3>06</h3><p>Semesters</p></div>
+        <div class="stat"><h3>100+</h3><p>Notes and PDFs</p></div>
+        <div class="stat"><h3>24/7</h3><p>Accessible portal</p></div>
+        <div class="stat"><h3>KVSC</h3><p>College identity</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="title">Contact</h2>
+      <p class="subtitle">A simple college contact block for student queries and support.</p>
+      <div class="card" style="max-width:760px;margin:auto">
+        <p class="meta"><strong>Kalidas Vidyapati Science College, Uchchaith, Benipatti, Madhubani</strong></p>
+        <p class="meta">This rebuilt page keeps the college name correct and uses the Madhubani theme only as the design style.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="footin">
+      <div>
+        <h4>KVSC College</h4>
+        <p>Study portal inspired by Mithila art, built for a clean student-friendly college experience.</p>
+      </div>
+      <div>
+        <h4>Links</h4>
+        <p>Home<br>Materials<br>Notifications<br>Theme</p>
+      </div>
+      <div>
+        <h4>Identity</h4>
+        <p>Kalidas Vidyapati Science College<br>Uchchaith, Benipatti, Madhubani</p>
+      </div>
+    </div>
+    <div class="copy">© 2026 KVSC College. All rights reserved.</div>
+  </footer>
+
+  <script>
+    const modeBtn=document.getElementById('modeBtn');
+    const hamb=document.getElementById('hamb');
+    const menu=document.getElementById('menu');
+    modeBtn.onclick=()=>{
+      document.body.classList.toggle('dark');
+      modeBtn.textContent=document.body.classList.contains('dark')?'☀️ Light':'🌙 Dark';
+    };
+    hamb.onclick=()=>menu.classList.toggle('show');
+  </script>
+</body>
+  </html>
