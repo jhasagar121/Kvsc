@@ -1,2 +1,2 @@
-# Kvsc-college-Notification-
+# Kvsc
 Kvsc college ke student ke liye saare notes , pdf and notification 
